@@ -1,5 +1,36 @@
 @import "~jspsych/css/jspsych.css";
 
+body{
+  direction: rtl;
+}
+
+.jspsych-survey-multi-choice-text{
+  text-align: right;
+  margin-right: 10%;
+}
+
+input[type="radio"]{
+  width: 10%;
+}
+
+.jspsych-content{
+  direction: rtl;
+}
+
 .jspsych-display-element {
   background-color: #ffffff;
+}
+
+.prpmpt {
+  display: flex;
+  flex-direction: column;
+}
+
+.jspsych-survey-text-form{
+  direction: rtl;
+}
+
+.jspsych-survey-multi-choice-option {
+  direction: rtl;
+  text-align: right;
 }

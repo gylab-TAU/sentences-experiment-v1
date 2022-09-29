@@ -1,8 +1,8 @@
 import InstructionsPlugin from "@jspsych/plugin-instructions";
 
 class instructionsComponent {
-    static getTrial() {
-        let pages = this.getImageTags();
+    static getTrial(start, stop) {
+        let pages = this.getImageTags(start, stop);
 
         let trial = {
             type: InstructionsPlugin,
@@ -15,11 +15,11 @@ class instructionsComponent {
         return trial;
     }
 
-    static getImageTags() {
+    static getImageTags(start, stop) {
         let tagsArray = [];
         
-        for (let i = 1; i <= 3; i++) {
-            tagsArray.push('<img src="media/images/instructions/instructions' + i + '.png" style="max-width:' + window.screen.availWidth + "px; max-height:" + (window.screen.availHeight - 50) +  'px;">');
+        for (let i = start; i <= stop; i++) {
+            tagsArray.push('<img src="media/images/instructions/Slide' + i + '.JPG" style="max-width:' + window.screen.availWidth + "px; max-height:" + (window.screen.availHeight - 50) +  'px;">');
         }
 
         return tagsArray;

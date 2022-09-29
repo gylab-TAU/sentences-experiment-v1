@@ -2,7 +2,8 @@ import httpService from "./httpService";
 import NutellaService from "./NutellaService";
 
 class EgoziService {
-    static sendDataToEgozi(experimentName, experimenterName, results, participantId) {
+    static async sendDataToEgozi(experimentName, experimenterName, results, participantId, timeline, redirect) {
+        console.log(results)
         let tempArr = [];
 
         for (var i = 0; i < results.length; i++) {
@@ -13,9 +14,9 @@ class EgoziService {
             "experimentName": experimentName,
             "experimenterName": experimenterName,
             "subjectId": participantId,
-            "results": tempArr
+            "results": results
         }
-        console.log(data)
+        
         let success = (res) => {
             console.log("egozi succeded");
 
@@ -23,10 +24,15 @@ class EgoziService {
         }
 
         let error = (err) => {
-            console.log(err);
+            console.log(err); 
+
         }
 
-        httpService.sendPostRequest("http://egozi.tau.ac.il/experiments/router.php", data, error, success);
+        console.log("^^^^^^^^^^^")
+        console.log(data)
+        console.log("^^^^^^^^^^^^^0")
+
+        await httpService.sendPostRequest("http://egozi.tau.ac.il/experiments/router.php", data, error, success);   
     }
 }
 
